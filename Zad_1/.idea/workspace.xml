@@ -17,13 +17,14 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1Yf2383aek9zMMmayKGqCHd0fj6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -51,9 +52,13 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="461" y="162" key="SettingsEditor" timestamp="1583319164162">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1583319686463">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/1920.64.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1583319164162" />
+    <state x="740" y="274" key="FileChooserDialogImpl/1920.64.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1583319686463" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1583319847090">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/1920.64.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1583319847090" />
   </component>
 </project>
