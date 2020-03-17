@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2e2a22aa-eed7-47a3-8ed4-74370fb5f8f6" name="Default Changelist" comment="" />
+    <list default="true" id="2e2a22aa-eed7-47a3-8ed4-74370fb5f8f6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/Konstruktor_1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +12,13 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -60,5 +70,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/1920.64.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1583319847090" />
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1584435512921">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog/1920.64.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1584435512921" />
+    <state x="342" y="140" key="new project wizard" timestamp="1584435697154">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="140" key="new project wizard/1920.64.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1584435697154" />
   </component>
 </project>
