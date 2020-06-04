@@ -1,75 +1,67 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
+import java.util.*;
 
 
 public class Main {
 
     public static void main(String[] args) {
 
-
-
-        Telefon iPhone = new Telefon();
-        iPhone.dodaj_tel_kom(69381032);
-
         Recepcjonista Tomek = new Recepcjonista(32434, "Tomek", "Kowalski");
 
         Planista Jakub = new Planista("Jakub", "Nowak", 1);
 
+
         Pracownik Piotr = new Pracownik("Piotr", "Nowak", 123);
-
-
-
-        //jakub.podejrzyj_rejestr_zlecen();
+        Pracownik Damian = new Pracownik("Damian", "Ptach", 124);
 
         Tomek.dodaj_zlecenie(1,"01.04.2020","Oczekiwanie");
         Tomek.dodaj_zlecenie(2,"02.04.2020","Oczekiwanie");
-        Tomek.dodaj_zlecenie(3,"03.04.2020","Oczekiwanie");
-        Tomek.dodaj_zlecenie(4,"04.04.2020","Oczekiwanie");
-        Tomek.dodaj_zlecenie(5,"05.04.2020","Oczekiwanie");
-        Tomek.dodaj_zlecenie(6,"06.04.2020","Oczekiwanie");
-
+        Tomek.dodaj_zlecenie(3,"03.04.2020","W trakcie");
+        Tomek.dodaj_zlecenie(4,"04.04.2020","W trakacie");
+        Tomek.dodaj_zlecenie(5,"05.04.2020","W trakcie");
+        Tomek.dodaj_zlecenie(6,"06.04.2020","W trakcie");
+        Tomek.dodaj_zlecenie(7,"06.04.2020","Zakonczony");
 
         Piotr.zmien_status_zlecenia(2, "Zamknięte");
+        Damian.zmien_status_zlecenia(1,"W trakcie");
 
-       // Jakub.podejrzyj_rejestr_zlecen();
-
-        Rejestr_zlecen.usun_zlecenie(5);
-
-
+        Rejestr_zlecen.usun_zlecenie(3);
 
         Rejestr_zlecen.modyfikuj_zlecenie(4, 10, "04.04.2018", "Otwarte");
-        Rejestr_zlecen.modyfikuj_zlecenie(3, 2, "04.04.2018", "Otwarte");
+        //Rejestr_zlecen.modyfikuj_zlecenie(3, 2, "04.04.2018", "Otwarte");
         //Jakub.podejrzyj_rejestr_zlecen();
-        Rejestr_zlecen.sortuj_zlecenia_FIFO();
-        System.out.println(" ");
-        System.out.println(" ");
-        System.out.println(" ");
-        Rejestr_zlecen.sortuj_zlecenia_LIFO();
+
+        //Rejestr_zlecen.sortuj_zlecenia_FIFO();
+
+        //Rejestr_zlecen.sortuj_zlecenia_LIFO();
+
+        Jakub.przydziel_zlecenia_pracownikowi("Nowak",1);
+        Jakub.przydziel_zlecenia_pracownikowi("Ptach",3);
+        Jakub.przydziel_zlecenia_pracownikowi("Nowak",4);
+
         Jakub.podejrzyj_rejestr_zlecen();
 
+        //Jakub.pokaz_zadania();
+
+        Telefon iPhone = new Telefon();
+        iPhone.dodaj_tel_kom(69381032, "Nowak");
+
+        Telefon Android = new Telefon();
+        iPhone.dodaj_tel_kom(69381692, "Kowalski");
+
+        Telefon Stacjonarny = new Telefon();
+        iPhone.dodaj_tel_stac(69381692, "Kowalski");
+
+
+        //System.out.println(iPhone.tel_kom);
+
+        Telefon.ksiazka_telefoniczna();
 
     }
 }
 
-class Telefon{
-    protected int tel_kom;
-    protected int tel_stac;
 
-    public void dodaj_tel_kom(int tel_kom){
-        this.tel_kom = tel_kom;
-    }
-
-    public void dodaj_tel_stac(int tel_stac){
-        this.tel_stac = tel_stac;
-    }
-
-
-}
 
 class Recepcjonista{
 
@@ -78,6 +70,7 @@ class Recepcjonista{
         this.imie = imie;
         this.nazwisko = nazwisko;
     }
+
 
     protected int nip;
     protected String imie;
@@ -110,6 +103,8 @@ class Pracownik{
     private String nazwisko;
     protected int id_pracownika;
 
+    public static List zadania = new ArrayList();
+
     Pracownik(String imie, String nazwisko, int id_pracownika){
         this.imie = imie;
         this.nazwisko = nazwisko;
@@ -117,7 +112,7 @@ class Pracownik{
     }
 
     public void zmien_status_zlecenia(int id_zlecenia, String status){
-        Rejestr_zlecen.zlecenia.get(id_zlecenia + 1).status = status;
+        Rejestr_zlecen.zlecenia.get(id_zlecenia - 1).status = status;
     }
 
 }
@@ -126,6 +121,7 @@ class Planista{
     protected String imie;
     private String nazwisko;
     protected int id_planista;
+    public static Map<String, String> zadania = new HashMap<String, String>();
 
     Planista(String imie, String nazwisko, int id_planista){
         this.imie = imie;
@@ -148,7 +144,15 @@ class Planista{
         }
     }
 
-    public void przydziel_zlecenia_pracownikowi(){
+    public void przydziel_zlecenia_pracownikowi( String nazwisko, int id_zlecenia){
+        String zadanie = Integer.toString(id_zlecenia);
+        zadania.put(zadanie, nazwisko);
+
+    }
+
+    public void pokaz_zadania(){
+
+        System.out.println(Arrays.asList(zadania));
 
     }
 
@@ -191,5 +195,28 @@ class Rejestr_zlecen{
         Collections.reverse(zlecenia);
     }
 
+
+}
+
+class Telefon{
+    protected int tel_kom;
+    protected int tel_stac;
+    public static Map<String, String> numery_tel = new HashMap<String, String>();
+
+    public void dodaj_tel_kom(int tel_kom, String nazwisko){
+        String zadanie = Integer.toString(tel_kom);
+        numery_tel.put(zadanie, nazwisko);
+    }
+
+    public void dodaj_tel_stac(int tel_stac, String nazwisko ){
+        String zadanie = Integer.toString(tel_stac);
+        numery_tel.put(zadanie, nazwisko);
+    }
+
+    public static void ksiazka_telefoniczna(){
+
+        System.out.println(Arrays.asList(numery_tel));
+
+    }
 
 }
